@@ -18,7 +18,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-import "./home.css";
+import "../styles/home.css";
 
 function Home() {
   const navigate = useNavigate();
@@ -67,9 +67,7 @@ function Home() {
       return;
     }
 
-    navigate(
-      `/catalogo?buscar=${encodeURIComponent(texto)}`
-    );
+    navigate(`/catalogo?buscar=${encodeURIComponent(texto)}`);
   };
 
   return (
@@ -101,6 +99,7 @@ function Home() {
           </div>
         </div>
 
+        {/* BUSCADOR */}
         <form
           className="header-search"
           onSubmit={buscarProducto}
@@ -114,12 +113,11 @@ function Home() {
             type="text"
             placeholder="¿Qué producto buscas?"
             value={busqueda}
-            onChange={(e) =>
-              setBusqueda(e.target.value)
-            }
+            onChange={(e) => setBusqueda(e.target.value)}
           />
         </form>
 
+        {/* MI PEDIDO */}
         <button
           className="header-order"
           onClick={() => navigate("/mi-pedido")}
@@ -145,6 +143,7 @@ function Home() {
         {/* HERO */}
         <section className="home-hero">
 
+          {/* TEXTO */}
           <div className="hero-content">
 
             <span className="hero-brand">
@@ -164,9 +163,7 @@ function Home() {
 
             <button
               className="hero-button"
-              onClick={() =>
-                navigate("/catalogo")
-              }
+              onClick={() => navigate("/catalogo")}
             >
               Ver catálogo
               <ChevronRight size={22} />
@@ -174,24 +171,36 @@ function Home() {
 
           </div>
 
+          {/* GRÁFICO ORIGINAL */}
           <div className="hero-image-area">
 
             <div className="hero-glow"></div>
 
             <div className="hero-tools-group">
 
+              {/* HERRAMIENTAS */}
               <div className="hero-tool hero-drill-icon">
-                <Hammer size={92} strokeWidth={1.8} />
+                <Hammer
+                  size={92}
+                  strokeWidth={1.8}
+                />
               </div>
 
               <div className="hero-tool hero-wrench-icon">
-                <Wrench size={105} strokeWidth={1.8} />
+                <Wrench
+                  size={105}
+                  strokeWidth={1.8}
+                />
               </div>
 
               <div className="hero-tool hero-hammer-icon">
-                <Hammer size={95} strokeWidth={1.8} />
+                <Hammer
+                  size={95}
+                  strokeWidth={1.8}
+                />
               </div>
 
+              {/* CARRITO */}
               <div className="hero-cart-graphic">
 
                 <div className="hero-cart-body">
@@ -207,6 +216,7 @@ function Home() {
                 <div className="hero-cart-bottom"></div>
 
                 <div className="hero-cart-wheel wheel-one"></div>
+
                 <div className="hero-cart-wheel wheel-two"></div>
 
               </div>
@@ -234,9 +244,7 @@ function Home() {
 
             <button
               className="view-all-button"
-              onClick={() =>
-                navigate("/categorias")
-              }
+              onClick={() => navigate("/catalogo")}
             >
               Ver todas
               <ChevronRight size={24} />
@@ -259,7 +267,6 @@ function Home() {
                     )
                   }
                 >
-
                   <div className="category-icon">
                     <Icono
                       size={58}
@@ -270,7 +277,6 @@ function Home() {
                   <span>
                     {categoria.nombre}
                   </span>
-
                 </button>
               );
             })}
@@ -347,30 +353,41 @@ function Home() {
 
       </main>
 
-      {/* NAVEGACIÓN */}
+      {/* NAVEGACIÓN INFERIOR */}
       <nav className="bottom-navigation">
 
-        <button className="active">
+        <button
+          className="active"
+          onClick={() => navigate("/")}
+        >
           <House size={26} />
           Inicio
         </button>
 
-        <button onClick={() => navigate("/catalogo")}>
+        <button
+          onClick={() => navigate("/catalogo")}
+        >
           <Grid2X2 size={25} />
           Catálogo
         </button>
 
-        <button onClick={() => navigate("/mi-pedido")}>
+        <button
+          onClick={() => navigate("/mi-pedido")}
+        >
           <ShoppingCart size={26} />
           Mi pedido
         </button>
 
-        <button onClick={() => navigate("/mis-pedidos")}>
+        <button
+          onClick={() => navigate("/mis-pedidos")}
+        >
           <Package size={25} />
           Pedidos
         </button>
 
-        <button onClick={() => navigate("/perfil")}>
+        <button
+          onClick={() => navigate("/perfil")}
+        >
           <UserRound size={25} />
           Cuenta
         </button>
